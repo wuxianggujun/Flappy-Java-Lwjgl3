@@ -78,13 +78,11 @@ public class Main implements Runnable {
 
     private void update() {
         glfwPollEvents();
-        if (Input.keys[GLFW_KEY_SPACE]){
-            System.out.println("Flap!");
-        }
+
     }
 
     private void render() {
-        glClear(GL_COLOR_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
         glfwSwapBuffers(window);
     }
 
