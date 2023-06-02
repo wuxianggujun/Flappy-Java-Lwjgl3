@@ -8,13 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1991f3e-c1d4-4eb3-9b3e-3ed5e42167e0" name="更改" comment="暂时不知道是什么问题">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/img.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shaders/pipe.frag" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/pipe.frag" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/utils/FileUtils.java" afterDir="false" />
-    </list>
+    <list default="true" id="f1991f3e-c1d4-4eb3-9b3e-3ed5e42167e0" name="更改" comment="根据评论区修复了问题，已经可以看到管道了" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -129,7 +123,7 @@
       <workItem from="1685624787928" duration="6680000" />
       <workItem from="1685666480927" duration="1930000" />
       <workItem from="1685668433743" duration="12292000" />
-      <workItem from="1685716852550" duration="5787000" />
+      <workItem from="1685716852550" duration="5906000" />
     </task>
     <task id="LOCAL-00001" summary="创建项目">
       <created>1685608282748</created>
@@ -173,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685720868006</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="根据评论区修复了问题，已经可以看到管道了">
+      <created>1685722739949</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1685722739949</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,6 +202,7 @@
     <MESSAGE value="通过查看log输出，找到了问题所在是自己使用错了方法，在BufferUtils类中，ByteBuffer.allocateDirect写成了ByteBuffer.allocate" />
     <MESSAGE value="绘制出了背景和小鸟" />
     <MESSAGE value="暂时不知道是什么问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="暂时不知道是什么问题" />
+    <MESSAGE value="根据评论区修复了问题，已经可以看到管道了" />
+    <option name="LAST_COMMIT_MESSAGE" value="根据评论区修复了问题，已经可以看到管道了" />
   </component>
 </project>
