@@ -14,10 +14,11 @@ uniform int top;
 
 void main()
 {
+    vec2 newTc = fs_in.tc;
 	if (top == 1)
-		fs_in.tc.y = 1.0 - fs_in.tc.y;
+		newTc.y = 1.0 - newTc.y;
 		
-	color = texture(tex, fs_in.tc);
+	color = texture(tex, newTc);
 	if (color.w < 1.0)
 		discard;
 	color *= 2.0 / (length(bird - fs_in.position.xy) + 1.5) + 0.5;
