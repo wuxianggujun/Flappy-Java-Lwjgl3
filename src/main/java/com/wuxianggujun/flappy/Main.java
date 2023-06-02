@@ -1,26 +1,25 @@
 package com.wuxianggujun.flappy;
 
+import static org.lwjgl.glfw.GLFW.*;
+import static org.lwjgl.opengl.GL11.*;
+import static org.lwjgl.opengl.GL13.*;
+import static org.lwjgl.system.MemoryUtil.*;
+
+import java.nio.ByteBuffer;
+
+
 import com.wuxianggujun.flappy.graphics.Shader;
 import com.wuxianggujun.flappy.input.Input;
 import com.wuxianggujun.flappy.level.Level;
 import com.wuxianggujun.flappy.maths.Matrix4f;
-import org.lwjgl.Version;
-import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.opengl.GL;
-import org.lwjgl.opengl.GL15;
-
-import static org.lwjgl.glfw.GLFW.*;
-import static org.lwjgl.opengl.GL11.*;
-import static org.lwjgl.opengl.GL15.*;
-import static org.lwjgl.system.MemoryUtil.*;
 
 public class Main implements Runnable {
 
     private final int width = 1280;
     private final int height = 720;
 
-    private Thread thread;
     private boolean running = false;
 
     private long window;
@@ -28,60 +27,53 @@ public class Main implements Runnable {
     private Level level;
 
     public void start() {
-        System.out.println("Hello LWJGL " + Version.getVersion() + "!");
         running = true;
-        thread = new Thread(this, "Game");
+        Thread thread = new Thread(this, "Game");
         thread.start();
     }
 
     private void init() {
-        // Setup an error callback. The default implementation
-        // will print the error message in System.err.
-        GLFWErrorCallback.createPrint(System.err).set();
-
         if (!glfwInit()) {
-            throw new IllegalStateException("无法初始化GLFW库！");
+            System.err.println("Could not initialize GLFW!");
+            return;
         }
 
-        glfwDefaultWindowHints();
-        glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);//创建后窗口将保持隐藏状态
-        glfwWindowHint(GLFW_RESIZABLE, GL_TRUE);//窗口可调整大小
-
+        glfwWindowHint(GLFW_RESIZABLE, GL_TRUE);
         window = glfwCreateWindow(width, height, "Flappy", NULL, NULL);
         if (window == NULL) {
-            throw new RuntimeException("无法创建窗口");
+            System.err.println("Could not create GLFW window!");
+            return;
         }
-
 
         GLFWVidMode vidmode = glfwGetVideoMode(glfwGetPrimaryMonitor());
         glfwSetWindowPos(window, (vidmode.width() - width) / 2, (vidmode.height() - height) / 2);
 
         glfwSetKeyCallback(window, new Input());
+
         glfwMakeContextCurrent(window);
         glfwShowWindow(window);
-        //获取当前OpenGL上下文的功能信息
         GL.createCapabilities();
 
-
-        glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
         glEnable(GL_DEPTH_TEST);
         glActiveTexture(GL_TEXTURE1);
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        System.out.println("OpenGL: " + glGetString(GL_VERSION));
         Shader.loadAll();
-
 
         Matrix4f pr_matrix = Matrix4f.orthographic(-10.0f, 10.0f, -10.0f * 9.0f / 16.0f, 10.0f * 9.0f / 16.0f, -1.0f, 1.0f);
         Shader.BG.setUniformMat4f("pr_matrix", pr_matrix);
         Shader.BG.setUniform1i("tex", 1);
 
-
         Shader.BIRD.setUniformMat4f("pr_matrix", pr_matrix);
         Shader.BIRD.setUniform1i("tex", 1);
 
+        Shader.PIPE.setUniformMat4f("pr_matrix", pr_matrix);
+        Shader.PIPE.setUniform1i("tex", 1);
 
         level = new Level();
     }
 
-    @Override
     public void run() {
         init();
 
@@ -116,24 +108,27 @@ public class Main implements Runnable {
         glfwTerminate();
     }
 
-
     private void update() {
         glfwPollEvents();
         level.update();
+        if (level.isGameOver()) {
+            level = new Level();
+        }
     }
 
     private void render() {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         level.render();
+
         int error = glGetError();
-        if (error != GL_NO_ERROR) {
-            System.out.println("Error = " + error);
-        }
+        if (error != GL_NO_ERROR)
+            System.out.println(error);
+
         glfwSwapBuffers(window);
     }
-
 
     public static void main(String[] args) {
         new Main().start();
     }
+
 }

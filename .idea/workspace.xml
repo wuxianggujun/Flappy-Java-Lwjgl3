@@ -8,21 +8,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1991f3e-c1d4-4eb3-9b3e-3ed5e42167e0" name="更改" comment="通过查看log输出，找到了问题所在是自己使用错了方法，在BufferUtils类中，ByteBuffer.allocateDirect写成了ByteBuffer.allocate">
-      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/bg.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/bird.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/pipe.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shaders/bird.frag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shaders/bird.vert" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/level/Bird.java" afterDir="false" />
+    <list default="true" id="f1991f3e-c1d4-4eb3-9b3e-3ed5e42167e0" name="更改" comment="绘制出了背景和小鸟">
+      <change afterPath="$PROJECT_DIR$/shaders/fade.frag" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shaders/fade.vert" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shaders/pipe.frag" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shaders/pipe.vert" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/level/Pipe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shaders/bg.frag" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/bg.frag" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shaders/bg.vert" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/bg.vert" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/bird.frag" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/bird.frag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/bird.vert" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/bird.vert" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/Texture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/graphics/Texture.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/graphics/Shader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/graphics/Shader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/graphics/VertexArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/graphics/VertexArray.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/input/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/input/Input.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/level/Bird.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/level/Bird.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/level/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/level/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/maths/Matrix4f.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/maths/Matrix4f.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/maths/Vector3f.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/maths/Vector3f.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/utils/BufferUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/utils/BufferUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/utils/FileUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/utils/ShaderUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/utils/ShaderUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +64,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+  </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -79,7 +90,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/WuXiangGuJun/CodeSpace/IdeaProjects/Flappy/res",
+    "last_opened_file_path": "C:/Users/WuXiangGuJun/CodeSpace/IdeaProjects/Flappy/src/main/java/com/wuxianggujun/flappy",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -97,8 +108,9 @@
       <recent name="com.wuxianggujun.flappy.utils" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\WuXiangGuJun\CodeSpace\IdeaProjects\Flappy\res" />
+      <recent name="C:\Users\WuXiangGuJun\CodeSpace\IdeaProjects\Flappy\src\main\java\com\wuxianggujun\flappy" />
       <recent name="C:\Users\WuXiangGuJun\CodeSpace\IdeaProjects\Flappy\shaders" />
+      <recent name="C:\Users\WuXiangGuJun\CodeSpace\IdeaProjects\Flappy\res" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\WuXiangGuJun\CodeSpace\IdeaProjects\Flappy\shaders" />
@@ -129,7 +141,8 @@
       <workItem from="1685608043565" duration="6843000" />
       <workItem from="1685624787928" duration="6680000" />
       <workItem from="1685666480927" duration="1930000" />
-      <workItem from="1685668433743" duration="11234000" />
+      <workItem from="1685668433743" duration="12292000" />
+      <workItem from="1685716852550" duration="3805000" />
     </task>
     <task id="LOCAL-00001" summary="创建项目">
       <created>1685608282748</created>
@@ -159,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685696916066</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="绘制出了背景和小鸟">
+      <created>1685702149423</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1685702149423</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -185,6 +205,7 @@
     <MESSAGE value="创建显示了一个全白的窗口" />
     <MESSAGE value="先备份一下感觉似乎有的地方代码写错了，先睡觉" />
     <MESSAGE value="通过查看log输出，找到了问题所在是自己使用错了方法，在BufferUtils类中，ByteBuffer.allocateDirect写成了ByteBuffer.allocate" />
-    <option name="LAST_COMMIT_MESSAGE" value="通过查看log输出，找到了问题所在是自己使用错了方法，在BufferUtils类中，ByteBuffer.allocateDirect写成了ByteBuffer.allocate" />
+    <MESSAGE value="绘制出了背景和小鸟" />
+    <option name="LAST_COMMIT_MESSAGE" value="绘制出了背景和小鸟" />
   </component>
 </project>
