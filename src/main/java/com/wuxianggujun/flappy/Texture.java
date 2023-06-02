@@ -5,7 +5,6 @@ import com.wuxianggujun.flappy.utils.BufferUtils;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import static org.lwjgl.opengl.GL11.*;
@@ -48,5 +47,16 @@ public class Texture {
         glBindTexture(GL_TEXTURE_2D, 0);
         return result;
     }
+
+    public void bind() {
+        glBindTexture(GL_TEXTURE_2D, texture);
+
+    }
+
+    public void unbind() {
+        glBindTexture(GL_TEXTURE_2D, 0);
+
+    }
+
 
 }

@@ -11,12 +11,22 @@ import static org.lwjgl.opengl.GL20.*;
 
 public class Shader {
 
+    public static final int VERTEX_ATTRIB = 0;
+    public static final int TCOORD_ATTRIB = 1;
+
+    public static Shader BG;
+
     private final int ID;
     private final Map<String, Integer> locationCache = new HashMap<String, Integer>();
 
     public Shader(String vertex, String fragment) {
         this.ID = ShaderUtils.load(vertex, fragment);
     }
+
+    public static void loadAll() {
+        BG = new Shader("shaders/bg.vert","shaders/bg.frag");
+    }
+
 
     public int getUniform(String name) {
         if (locationCache.containsKey(name)) {
@@ -46,8 +56,8 @@ public class Shader {
         glUniform3f(getUniform(name), vector.x, vector.y, vector.z);
     }
 
-    public void  setUniformMat4f(String name, Matrix4f matrix){
-        glUniformMatrix4fv(getUniform(name),false,matrix.toFloatBuffer());
+    public void setUniformMat4f(String name, Matrix4f matrix) {
+        glUniformMatrix4fv(getUniform(name), false, matrix.toFloatBuffer());
     }
 
 
@@ -56,7 +66,7 @@ public class Shader {
     }
 
     public void disable() {
-        glUseProgram(ID);
+        glUseProgram(0);
     }
 
 }

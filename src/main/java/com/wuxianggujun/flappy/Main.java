@@ -1,6 +1,9 @@
 package com.wuxianggujun.flappy;
 
+import com.wuxianggujun.flappy.graphics.Shader;
 import com.wuxianggujun.flappy.input.Input;
+import com.wuxianggujun.flappy.level.Level;
+import com.wuxianggujun.flappy.maths.Matrix4f;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWVidMode;
@@ -20,6 +23,8 @@ public class Main implements Runnable {
 
     private long window;
 
+    private Level level;
+
     public void start() {
         System.out.println("Hello LWJGL " + Version.getVersion() + "!");
         running = true;
@@ -37,7 +42,7 @@ public class Main implements Runnable {
         }
 
         glfwDefaultWindowHints();
-        glfwWindowHint(GLFW_VISIBLE,GLFW_FALSE);//创建后窗口将保持隐藏状态
+        glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);//创建后窗口将保持隐藏状态
         glfwWindowHint(GLFW_RESIZABLE, GL_TRUE);//窗口可调整大小
 
         window = glfwCreateWindow(width, height, "Flappy", NULL, NULL);
@@ -49,15 +54,22 @@ public class Main implements Runnable {
         GLFWVidMode vidmode = glfwGetVideoMode(glfwGetPrimaryMonitor());
         glfwSetWindowPos(window, (vidmode.width() - width) / 2, (vidmode.height() - height) / 2);
 
-        glfwSetKeyCallback(window,new Input());
+        glfwSetKeyCallback(window, new Input());
         glfwMakeContextCurrent(window);
         glfwShowWindow(window);
-
-
         //获取当前OpenGL上下文的功能信息
         GL.createCapabilities();
+
+
         glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
         glEnable(GL_DEPTH_TEST);
+
+        Shader.loadAll();
+
+        Matrix4f pr_matrix = Matrix4f.orthographic(-10.0f, 10.0f, -10.0f * 9.0f / 16.0f, 10.0f * 9.0f / 16.0f, -1.0f, 1.0f);
+        Shader.BG.setUniformMat4f("pr_matrix", pr_matrix);
+
+        level = new Level();
     }
 
     @Override
@@ -82,7 +94,8 @@ public class Main implements Runnable {
     }
 
     private void render() {
-        glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        level.render();
         glfwSwapBuffers(window);
     }
 
