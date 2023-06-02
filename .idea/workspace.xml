@@ -8,17 +8,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1991f3e-c1d4-4eb3-9b3e-3ed5e42167e0" name="更改" comment="先备份一下感觉似乎有的地方代码写错了，先睡觉">
-      <change afterPath="$PROJECT_DIR$/shaders/bg.frag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shaders/bg.vert" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/graphics/VertexArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/level/Level.java" afterDir="false" />
+    <list default="true" id="f1991f3e-c1d4-4eb3-9b3e-3ed5e42167e0" name="更改" comment="通过查看log输出，找到了问题所在是自己使用错了方法，在BufferUtils类中，ByteBuffer.allocateDirect写成了ByteBuffer.allocate">
+      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/bg.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/bird.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/pipe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shaders/bird.frag" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shaders/bird.vert" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/level/Bird.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/bg.frag" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/bg.frag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/bg.vert" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/bg.vert" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/Texture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/Texture.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/graphics/Shader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/graphics/Shader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/utils/BufferUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/utils/BufferUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/utils/FileUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/input/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/input/Input.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/level/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wuxianggujun/flappy/level/Level.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,33 +71,50 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/WuXiangGuJun/CodeSpace/IdeaProjects/Flappy/res",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "模块",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.wuxianggujun.flappy.utils" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\WuXiangGuJun\CodeSpace\IdeaProjects\Flappy\res" />
+      <recent name="C:\Users\WuXiangGuJun\CodeSpace\IdeaProjects\Flappy\shaders" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\WuXiangGuJun\CodeSpace\IdeaProjects\Flappy\shaders" />
       <recent name="C:\Users\WuXiangGuJun\CodeSpace\IdeaProjects\Flappy\src\main\java\com\wuxianggujun\flappy" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.wuxianggujun.flappy.Main" />
+      <module name="Flappy.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -108,7 +129,7 @@
       <workItem from="1685608043565" duration="6843000" />
       <workItem from="1685624787928" duration="6680000" />
       <workItem from="1685666480927" duration="1930000" />
-      <workItem from="1685668433743" duration="5840000" />
+      <workItem from="1685668433743" duration="11234000" />
     </task>
     <task id="LOCAL-00001" summary="创建项目">
       <created>1685608282748</created>
@@ -131,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685630439856</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="通过查看log输出，找到了问题所在是自己使用错了方法，在BufferUtils类中，ByteBuffer.allocateDirect写成了ByteBuffer.allocate">
+      <created>1685696916066</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1685696916066</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -156,6 +184,7 @@
     <MESSAGE value="创建项目" />
     <MESSAGE value="创建显示了一个全白的窗口" />
     <MESSAGE value="先备份一下感觉似乎有的地方代码写错了，先睡觉" />
-    <option name="LAST_COMMIT_MESSAGE" value="先备份一下感觉似乎有的地方代码写错了，先睡觉" />
+    <MESSAGE value="通过查看log输出，找到了问题所在是自己使用错了方法，在BufferUtils类中，ByteBuffer.allocateDirect写成了ByteBuffer.allocate" />
+    <option name="LAST_COMMIT_MESSAGE" value="通过查看log输出，找到了问题所在是自己使用错了方法，在BufferUtils类中，ByteBuffer.allocateDirect写成了ByteBuffer.allocate" />
   </component>
 </project>
